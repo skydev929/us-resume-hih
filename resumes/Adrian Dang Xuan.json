@@ -1,0 +1,54 @@
+{
+  "name": "Adrian Dang Xuan",
+  "email": "adriandx105@outlook.com",
+  "phone": "+48573583106",
+  "location": "Krakow, Poland",
+  "linkedin": "",
+  "website": "",
+
+  "experience": [
+    {
+      "company": "Hexagon(Remote)",
+      "title": "Senior Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "Mar 2024",
+      "end_date": "Feb 2026"
+    },
+    {
+      "company": "Geniusee",
+      "title": "Software Engineer",
+      "location": "Austin, TX",
+      "start_date": "Sep 2020",
+      "end_date": "Feb 2024"
+    },
+    {
+      "company": "Sparq",
+      "title": "Associate Software Developer",
+      "location": "Atlanta, GA",
+      "start_date": "Jan 2018",
+      "end_date": "Jun 2020"
+    },
+    {
+      "company": "GitHub",
+      "title": "Software Developer Intern",
+      "location": "San Francisco, CA",
+      "start_date": "May 2017",
+      "end_date": "Aug 2017"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Master's degree in Computer Science",
+      "school": "University of Washington",
+      "start_year": "2016",
+      "end_year": "2017"
+    },
+    {
+      "degree": "Bachelor's degree in Computer Science",
+      "school": "University of Washington",
+      "start_year": "2012",
+      "end_year": "2016"
+    }
+  ]
+}

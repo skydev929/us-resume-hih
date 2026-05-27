@@ -1,0 +1,54 @@
+{
+  "name": "Krystian Ngo Van",
+  "email": "krystian.nv0626@outlook.com",
+  "phone": "+48573583739",
+  "location": "Warsaw, Poland",
+  "linkedin": "",
+  "website": "",
+
+  "experience": [
+    {
+      "company": "PuzzleHR(Remote)",
+      "title": "Senior Software Engineer",
+      "location": "Tampa, FL",
+      "start_date": "Mar 2023",
+      "end_date": "Current"
+    },
+    {
+      "company": "Euristiq",
+      "title": "Software Engineer",
+      "location": "Toronto, Canada",
+      "start_date": "Jul 2020",
+      "end_date": "Feb 2023"
+    },
+    {
+      "company": "Svitla Systems",
+      "title": "Software Developer",
+      "location": "Corte Madela, CA",
+      "start_date": "Jan 2018",
+      "end_date": "Jun 2020"
+    },
+    {
+      "company": "Leobit",
+      "title": "Software Developer Intern",
+      "location": "Austin, TX",
+      "start_date": "Jun 2017",
+      "end_date": "Dec 2017"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Master's Degree in Computer Science",
+      "school": "University of Texas at Austin",
+      "start_year": "2016",
+      "end_year": "2017"
+    },
+    {
+      "degree": "Bachelor's Degree in Computer Science",
+      "school": "University of Texas at Austin",
+      "start_year": "2012",
+      "end_year": "2016"
+    }
+  ]
+}

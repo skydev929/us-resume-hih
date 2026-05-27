@@ -1,0 +1,48 @@
+{
+  "name": "Daniel Doan Hoang",
+  "email": "daniel.dh1210@outlook.com",
+  "phone": "+48573583708",
+  "location": "Poznan, Poland",
+  "linkedin": "",
+  "website": "",
+
+  "experience": [
+    {
+      "company": "Vention(Remote)",
+      "title": "Senior Software Engineer",
+      "location": "Montreal, Canada",
+      "start_date": "Jan 2022",
+      "end_date": "Current"
+    },
+    {
+      "company": "Magway Ltd",
+      "title": "Software Engineer",
+      "location": "London, UK",
+      "start_date": "Jan 2019",
+      "end_date": "Oct 2021"
+    },
+    {
+      "company": "Netflix",
+      "title": "Associate Software Developer",
+      "location": "Atlanta, GA",
+      "start_date": "Jul 2017",
+      "end_date": "Dec 2018"
+    },
+    {
+      "company": "Amazon",
+      "title": "Software Developer Intern",
+      "location": "London, UK",
+      "start_date": "Jul 2016",
+      "end_date": "Jun 2017"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "BSc + MSc in Computer Science",
+      "school": "University of Cambridge",
+      "start_year": "2012",
+      "end_year": "2016"
+    }
+  ]
+}

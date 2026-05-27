@@ -1,0 +1,48 @@
+{
+  "name": "Michal Nowicz",
+  "email": "michal.n1210@outlook.com",
+  "phone": "+48573583136",
+  "location": "Gliwice, Poland",
+  "linkedin": "",
+  "website": "",
+
+  "experience": [
+    {
+      "company": "PuzzleHR(Remote)",
+      "title": "Senior Software Engineer",
+      "location": "Tampa, FL",
+      "start_date": "Mar 2023",
+      "end_date": "Current"
+    },
+    {
+      "company": "Euristiq",
+      "title": "Software Engineer",
+      "location": "Toronto, Canada",
+      "start_date": "Jul 2020",
+      "end_date": "Feb 2023"
+    },
+    {
+      "company": "From Poland With Dev",
+      "title": "Software Developer",
+      "location": "Corte Madela, CA",
+      "start_date": "Jan 2018",
+      "end_date": "Jun 2020"
+    },
+    {
+      "company": "IBM",
+      "title": "Software Developer Intern",
+      "location": "Austin, TX",
+      "start_date": "Jul 2017",
+      "end_date": "Dec 2017"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Bachelor's Degree in Computer Science",
+      "school": "Stanford University",
+      "start_year": "2013",
+      "end_year": "2017"
+    }
+  ]
+}

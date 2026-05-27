@@ -1,0 +1,156 @@
+{
+  "name": "Terrance IvyBrown",
+  "email": "terranceivybrown964@gmail.com",
+  "phone": "+1 (304) 715-2455",
+  "location": "Houston, TX 77099",
+  "linkedin": "https://www.linkedin.com/in/terrance8706/",
+  "website": "",
+  "summary": "Senior Software Engineer with 8 years of experience designing and building cloud-based, distributed platforms across healthcare and commerce domains. Skilled in Python, C#, Go, Node.js, React, Next.js, PostgreSQL, Kafka, Redis, REST APIs, GraphQL, AWS, Docker, Kubernetes, and Terraform. Experienced in API gateway development, clinical data ingestion, enterprise commerce workflows, authentication/authorization, CI/CD, and production reliability, with strong ownership in fast-moving, cross-functional engineering environments.",
+  "skills": {
+    "Languages": [
+      "Python",
+      "C#",
+      "Go",
+      "JavaScript",
+      "TypeScript",
+      "PHP",
+      "SQL"
+    ],
+    "Backend": [
+      "FastAPI",
+      "Django",
+      "ASP.NET Core",
+      "Node.js",
+      "Express",
+      "Symfony",
+      "REST APIs",
+      "GraphQL",
+      "Kong",
+      "Microservices"
+    ],
+    "Frontend": [
+      "React",
+      "Next.js",
+      "Vue.js",
+      "Angular",
+      "Redux",
+      "Storybook",
+      "Bootstrap",
+      "MUI",
+      "Tailwind CSS"
+    ],
+    "Databases": [
+      "PostgreSQL",
+      "MySQL",
+      "SQL Server",
+      "MongoDB",
+      "Redis",
+      "TimescaleDB"
+    ],
+    "Cloud & DevOps": [
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "GitHub",
+      "GitLab"
+    ],
+    "Tools": [
+      "Kafka",
+      "OIDC",
+      "OAuth2",
+      "JWT",
+      "Jest",
+      "Cypress",
+      "TDD",
+      "Cursor",
+      "Claude"
+    ],
+    "Industry & Domain": [
+      "Healthcare Interoperability",
+      "HL7/FHIR",
+      "EHR Integrations",
+      "Clinical Data Exchange",
+      "Patient Profile/Search",
+      "Digital Commerce",
+      "Pricing",
+      "Checkout",
+      "Order Fulfillment"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Zus Health",
+      "title": "Senior Software Engineer",
+      "location": "Remote",
+      "start_date": "Jan 2025",
+      "end_date": "Current",
+      "details": [
+        "Built a Clinical Data Interoperability Platform in Python, C#, and Go, helping normalize fragmented patient records and expose stable APIs for care teams, product workflows, and downstream healthcare applications.",
+        "Developed the API Gateway / reverse proxy layer using Go and Kong, centralizing secure routing, request forwarding, request validation, and service-to-service communication across clinical data services.",
+        "Integrated OAuth2/OIDC and JWT validation into the gateway flow, supporting centralized authentication, authorization, rate limiting, and access control.",
+        "Built Ingestion Services that received partner feeds from APIs, EHR exports, flat files, and webhooks, then used Pydantic, JSON Schema, PostgreSQL, Redis, and Kafka to validate payloads, detect schema drift, track ingestion status, and route failed clinical records into retry workflows.",
+        "Supported ASP.NET Core / C# ingestion and clinical domain services using Dependency Injection, LINQ, strongly typed DTOs, repository-style PostgreSQL data access, and REST APIs to apply tenant-specific business rules, persist normalized patient records, and expose patient profile/search workflows.",
+        "Implemented failure-handling and recovery flows with Redis retry jobs, Kafka dead-letter/error events, validation checkpoints, and payload diff tooling, helping isolate malformed partner records, replay failed ingestion jobs, and reduce manual data correction during schema drift or upstream feed changes.",
+        "Scaled patient search and record retrieval flows in React and TypeScript, splitting oversized state containers and trimming redundant network calls to bring P99 page load time to 1.38s on the busiest operational views.",
+        "Improved AWS-based deployment reliability and observability across Docker, Kubernetes, Terraform, and CI/CD pipelines, using CloudWatch logging, health checks, rollout ordering, and service diagnostics to shorten incident triage when queue lag or stale configs blocked fresh release.",
+        "Patched legacy PHP/Symfony modules while moving validation and routing logic into Python and C# services, helping retire brittle shared code without freezing roadmap work or forcing partners into a risky cutover.",
+        "Unblocked product, implementation, and newer engineers by running API design reviews, clarifying tenant edge cases, and tightening review checklists so partner-specific work stopped bouncing between teams during late-stage release testing."
+      ]
+    },
+    {
+      "company": "Cognizant",
+      "title": "Full Stack Engineer",
+      "location": "Teaneck, NJ",
+      "start_date": "Mar 2022",
+      "end_date": "Dec 2024",
+      "details": [
+        "Built an Enterprise Digital Commerce Platform using Python, FastAPI, Node.js, PostgreSQL, React, Next.js, GraphQL, REST APIs, and AWS, modernizing catalog, pricing, promotion, cart validation, checkout, order placement, and fulfillment workflows for a revenue-critical commerce system.",
+        "Built Python/FastAPI pricing and promotion services with PostgreSQL and REST APIs to centralize discount rules, promotion eligibility, price calculation, cart eligibility checks, and checkout validation outside of brittle legacy flows.",
+        "Developed Node.js checkout orchestration services with GraphQL and REST APIs, connecting React/Next.js checkout screens to pricing, cart, inventory, order, and fulfillment services while standardizing request/response contracts.",
+        "Improved cart and checkout reliability by reducing timeout-prone request chains, validating pricing and inventory before order submission, and moving duplicated business rules into shared backend services.",
+        "Reworked the catalog and product experience layer with React, Next.js, TypeScript, GraphQL, and Apollo Client, reducing page data load time by 1.17 seconds across product, inventory, pricing, and recommendation views.",
+        "Built reusable typed frontend adapters for pricing, cart, and checkout data, helping React/Next.js pages consume backend responses consistently while reducing duplicated frontend transformation logic.",
+        "Supported the order and fulfillment integration layer with Node.js, REST APIs, PostgreSQL, and AWS, keeping order placement, settlement, shipment, and fulfillment updates consistent during phased modernization work.",
+        "Automated AWS, Docker, and GitLab CI/CD release workflows, tightening preview, QA, and production environment parity checks to reduce deployment time by 43.1% and prevent rollbacks caused by configuration drift.",
+        "Improved release stability by adding deployment checks, environment validation, and rollback-safe configuration handling across preview, QA, and production builds.",
+        "Unblocked client teams and junior engineers by breaking vague requirements into service contracts, reviewing pull requests, and steering tradeoff calls when backend constraints threatened scope or forced last-minute storefront changes."
+      ]
+    },
+    {
+      "company": "RedShelf",
+      "title": "Full Stack Developer",
+      "location": "Chicago, IL",
+      "start_date": "Apr 2019",
+      "end_date": "Mar 2022",
+      "details": [
+        "Built Digital Entitlement and Access Platform in Python, Django, and Vue.js to handle library access, account workflows, and content delivery rules, working around older ORM patterns and release windows tied to academic cycles.",
+        "Tuned Django ORM queries, Redis caching, and scheduled jobs for high-traffic academic periods, bringing peak API latency down to 412ms after slow entitlement lookups and repeated joins started backing up downstream requests.",
+        "Patched student-facing Vue.js and TypeScript screens for library search, reading access, and order history, supporting 4 product launches without rewriting the frontend shell or breaking older campus-specific integrations that still relied on fixed payload shapes.",
+        "Tested release candidates with Jest, Cypress, and accessibility passes, reducing production UI bugs by 35.8% and giving support teams clearer reproduction steps when browser-specific issues surfaced near semester start."
+      ]
+    },
+    {
+      "company": "Esprezzo",
+      "title": "Problem Analyst & Front-end Developer",
+      "location": "Boston, MA",
+      "start_date": "May 2017",
+      "end_date": "Mar 2019",
+      "details": [
+        "Built Operations Reporting Portal with React, Angular, JavaScript, and Bootstrap to replace spreadsheet-heavy workflows, dealing with changing business rules and thin documentation, while support teams still depended on the old manual process each day.",
+        "Debugged form validation, table rendering, and export defects across admin pages, replacing 6 spreadsheet-based workflows and trimming weekly manual reporting work by 9.5 hours for operations staff.",
+        "Wrote reusable filters, tables, and field validation so new internal screens shipped faster and stayed easier to patch.",
+        "Tested new workflows with QA and business analysts before rollout, cutting post-release issue volume by 27.6% and exposing ambiguous process rules early enough to adjust the UI before broader adoption."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's Degree in Computer Science",
+      "school": "Argosy University",
+      "start_year": "2013",
+      "end_year": "2017"
+    }
+  ]
+}
