@@ -4,6 +4,7 @@ import puppeteer from "puppeteer";
 import OpenAI from "openai";
 import fs from "fs";
 import path from "path";
+import os from "os";
 import Handlebars from "handlebars";
 
 
@@ -49,7 +50,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).send("Method not allowed");
 
   try {
-    const { profile, jd, template, jobTitle, companyName } = req.body;
+    const { profile, jd, template, jobTitle, companyName, returnBase64 } = req.body;
 
     if (!profile) return res.status(400).send("Profile required");
     if (!jd) return res.status(400).send("Job description required");
@@ -210,7 +211,7 @@ PROFESSIONAL SUMMARY RULE:
 * Make it keyword-rich, JD-aligned, and specific. Highlight the most important mandatory requirements first.
 * Reflect selected nice-to-have items and some 1-layer-deeper related skills where valuable.
 * Use exact or near-exact JD language where natural. Keep it concise and recruiter-friendly.
-* Use strategic **bolding** for important keywords, tools, technologies, and impact phrases.
+* Use strategic **bolding** for important keywords, tools, technologies, skills, project names, and numbers that improve scan value.
 * Absolutely DO NOT use grammatical connector dashes, en-dashes, em-dashes, semicolons, or colons to connect sentences or phrases.
 * You can use commas for sentence flow.
 * Standard hyphens used in professional terms, technical terms, and compound words such as open-source, full-time, front-end, and go-to-market are acceptable.
@@ -302,11 +303,10 @@ Use strategic **bolding** to improve scan value.
 Bold selectively for:
 * the title under the name if included in title text
 * important keywords in the summary
-* key technologies, frameworks, platforms, architecture terms, and domain terms
-* high-impact verbs when useful
-* selected numbers or impact phrases when useful
-* the project name in the first bullet of every non-internship role
-* especially important tools, systems, or outcomes that should stand out quickly
+* key technologies, frameworks, platforms, architecture terms, domain terms, and core skills
+* important numbers, metrics, and outcome phrases
+* project names in the first bullet of every non-internship role
+* selected skills, tools, systems, or outcomes that should stand out quickly
 Do not over-bold to the point of noise.
 
 ---
@@ -752,12 +752,70 @@ Here is the target job description:
       fs.unlinkSync(normalPdfPath);
     }
 
-    // Save both PDFs
+    // If caller requested an immediate streamed download, return the PDF as an attachment
+    // Use `stream: true` in the request body and `which: 'numbered'|'normal'` to pick file.
+    if (req.body && req.body.stream) {
+      const which = req.body.which === 'normal' ? 'normal' : 'numbered';
+      const streamName = which === 'normal' ? normalPdfName : numberedPdfName;
+      const streamBuffer = pdfBuffer;
+
+      // Ensure output folder has the file saved server-side as well
+      try {
+        fs.writeFileSync(path.join(outputFolder, streamName), streamBuffer);
+      } catch (err) {
+        console.error('Failed to save streamed PDF to output folder:', err);
+      }
+
+      // Send PDF as attachment so browser will prompt for download
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="${streamName}"`);
+      res.setHeader('Content-Length', streamBuffer.length);
+      return res.status(200).send(streamBuffer);
+    }
+
+    // Save both PDFs to the configured output folder
     fs.writeFileSync(numberedPdfPath, pdfBuffer);
     fs.writeFileSync(normalPdfPath, pdfBuffer);
 
     console.log("Created numbered PDF:", numberedPdfPath);
     console.log("Created normal PDF:", normalPdfPath);
+
+    // Also copy the two files into the user's Downloads folder (if accessible)
+    let numberedPdfDownloadPath = null;
+    let normalPdfDownloadPath = null;
+    try {
+      const downloadsFolder = path.join(os.homedir(), "Downloads");
+      if (!fs.existsSync(downloadsFolder)) {
+        fs.mkdirSync(downloadsFolder, { recursive: true });
+      }
+
+      numberedPdfDownloadPath = path.join(downloadsFolder, numberedPdfName);
+      normalPdfDownloadPath = path.join(downloadsFolder, normalPdfName);
+
+      // Overwrite existing files in Downloads for convenience
+      if (fs.existsSync(numberedPdfDownloadPath)) fs.unlinkSync(numberedPdfDownloadPath);
+      if (fs.existsSync(normalPdfDownloadPath)) fs.unlinkSync(normalPdfDownloadPath);
+
+      fs.writeFileSync(numberedPdfDownloadPath, pdfBuffer);
+      fs.writeFileSync(normalPdfDownloadPath, pdfBuffer);
+
+      console.log("Copied PDFs to Downloads:", numberedPdfDownloadPath, normalPdfDownloadPath);
+    } catch (err) {
+      console.error("Failed to copy PDFs to Downloads folder:", err);
+      // leave download paths as null; do not fail the entire request
+    }
+
+    // If caller requested base64 inline return (useful for remote hosts like Render), include base64 payloads
+    let numberedBase64 = null;
+    let normalBase64 = null;
+    if (returnBase64) {
+      try {
+        numberedBase64 = pdfBuffer.toString('base64');
+        normalBase64 = pdfBuffer.toString('base64');
+      } catch (err) {
+        console.error('Failed to encode PDFs to base64:', err);
+      }
+    }
 
     // Return success response to frontend
     return res.status(200).json({
@@ -765,6 +823,10 @@ Here is the target job description:
       message: "PDF files saved successfully",
       numberedFile: numberedPdfPath,
       normalFile: normalPdfPath,
+      numberedDownloadFile: numberedPdfDownloadPath,
+      normalDownloadFile: normalPdfDownloadPath,
+      numberedBase64,
+      normalBase64,
       nextNumber,
     });
 
